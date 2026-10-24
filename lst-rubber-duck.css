@@ -1,0 +1,139 @@
+/* LST Rubber Duck — Kanagawa Lotus-based overlay v1.0
+   Set LST Settings > General > Site Style: Light
+   Then host this CSS file publicly and paste its HTTPS URL into
+   Settings > General > External CSS Stylesheet.
+   Original base: https://github.com/AzureBelmont/lst-css
+*/
+@import url('https://azurebelmont.github.io/lst-css/kanagawa-lotus.css');
+
+:root {
+  --at-bg: #fff0b2;
+  --at-bg2: #fff9e5;
+  --at-bg3: #ffe9a1;
+  --at-border: rgba(139, 91, 12, .18);
+  --at-accent: #b67100;
+  --at-accent2: #925700;
+  --at-accent-faint: rgba(241, 179, 32, .18);
+  --at-text: #493516;
+  --at-text2: #70542b;
+  --at-text3: #95774d;
+  --at-green: #39783b;
+  --at-red: #b24336;
+  --at-radius: 14px;
+  --key-value-odd-bg: #fff9e5;
+  --key-value-even-bg: #fff1c4;
+  --color-links: #956100;
+  --color-links-hover: #a96b00;
+  --breadcrumb-fg: #70542b;
+  --breadcrumb-active-fg: #493516;
+  --breadcrumb-hover-fg: #925700;
+  --notification-unread: #b67100;
+  --panel-head-fg: #925700;
+  --quick-search-bg: #fff9e5;
+  --quick-search-result-hover-bg: #ffe9a1;
+  --post-toolbar-bg: #fff4ce;
+  --post-toolbar-hover-bg: #ffe6a0;
+  --post-toolbar-hover-fg: #925700;
+  --label-fg: #70542b;
+  --label-fg-active: #493516;
+  --paginate-bg: #fff9e5;
+  --paginate-bg-hover: #ffe9a1;
+  --paginate-fg: #493516;
+  --data-table-tr-hover-bg: rgba(255, 195, 45, .15);
+  --color-icons: #b67100;
+  --color-blue: #806329;
+  --color-green: #39783b;
+  --color-purple: #956100;
+}
+
+/* Ambient duck-pond colors around site content */
+html, body {
+  color: var(--at-text) !important;
+  background-color: var(--at-bg) !important;
+}
+body {
+  background-image:
+    radial-gradient(ellipse at 7% 24%, rgba(255,255,255,.65), transparent 27%),
+    radial-gradient(ellipse at 93% 71%, rgba(255,197,55,.32), transparent 30%),
+    linear-gradient(125deg, #ffe27a, #fff4c0 48%, #ffd96c) !important;
+  background-attachment: fixed !important;
+}
+
+/* The base stylesheet hardcodes some surface colors; cover core LST surfaces. */
+.top-nav {
+  background: #ffdf79 !important;
+  border-bottom: 1px solid #e7bc63 !important;
+  box-shadow: 0 3px 15px rgba(122,84,18,.12) !important;
+}
+.top-nav, .top-nav a, .top-nav__site-logo {
+  color: var(--at-text) !important;
+}
+.top-nav .top-nav__branding img,
+.footer .footer__section:first-child .footer__section-title img {
+  filter: sepia(1) saturate(3) hue-rotate(350deg) !important;
+}
+.top-nav__site-logo { -webkit-text-fill-color: var(--at-text) !important; }
+
+.panelV2,
+.chatroom,
+.chatroom__users,
+.chatV2,
+[class*="chatV2__"],
+[class*="chatroom__"],
+.torrent-results,
+.data-table,
+.quick-search__results {
+  border-color: var(--at-border) !important;
+}
+
+.panelV2, .chatroom, .chatroom__users,
+[class*="chatV2__sidebar"],
+[class*="chatroom__sidebar"] {
+  background-color: var(--at-bg2) !important;
+  color: var(--at-text) !important;
+}
+
+.panelV2__heading,
+.panelV2__header,
+.chatV2__header,
+[class*="chatroom__header"] {
+  background-color: #ffecab !important;
+  color: var(--at-text) !important;
+}
+
+.chatV2__message,
+[class*="chatV2__message"],
+[class*="chatroom__message"] {
+  color: var(--at-text) !important;
+}
+
+button, input, textarea, select {
+  border-radius: 11px !important;
+}
+input, textarea, select {
+  accent-color: var(--at-accent);
+}
+input:focus-visible, textarea:focus-visible, select:focus-visible,
+button:focus-visible, a:focus-visible {
+  outline: 2px solid #be7a02 !important;
+  outline-offset: 2px;
+}
+
+/* Friendly, low-obstruction rubber-duck decorations on wide screens. */
+@media (min-width: 1200px) {
+  body::before, body::after {
+    position: fixed;
+    bottom: 14px;
+    pointer-events: none;
+    z-index: 1;
+    font-family: "Apple Color Emoji", "Segoe UI Emoji", sans-serif;
+    line-height: 1;
+    opacity: .85;
+    filter: drop-shadow(0 4px 4px rgba(102, 70, 15, .2));
+  }
+  body::before { content: "🦆"; left: 12px; font-size: 46px; }
+  body::after { content: "🐥"; right: 12px; font-size: 44px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; }
+}
